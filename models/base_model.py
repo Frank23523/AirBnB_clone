@@ -6,22 +6,22 @@ from datetime import datetime
 
 
 class BaseModel:
-    """This class defines common attributes/methods for other classes"""
+    """Defines the BaseModel class."""
 
     def __init__(self, *args, **kwargs):
-        """Initializes a new instance of the BaseModel class.
+        """Initializes a new instance of the BaseModel class
 
         Args:
-            *args (any): unused
+            *args (any): Unused.
             **kwargs (dict): Key/value pairs of attributes.
         """
         up_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
-        if kwargs:
+        if len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key == "created_at" or k == "updated_at":
+                if key == "created_at" or key == "updated_at":
                     self.__dict__[key] = datetime.strptime(value, up_format)
                 else:
                     self.__dict__[key] = value
@@ -29,7 +29,7 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """Updates the public instance attribute updated_at."""
+        """Update updated_at with the current datetime."""
         self.updated_at = datetime.today()
         models.storage.save()
 
@@ -43,5 +43,5 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the BaseModel instance."""
-        cname = self.__class__.__name__
-        return "[{}] ({}) {}".format(cname, self.id, self.__dict__)
+        c_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(c_name, self.id, self.__dict__)
