@@ -1,0 +1,88 @@
+/* styles/102-places.css */
+
+/* Mobile-first approach */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.locations,
+.amenities {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.locations h3,
+.locations h4,
+.amenities h3,
+.amenities h4 {
+    text-align: left;
+}
+
+.places {
+    text-align: center;
+}
+
+.places h1 {
+    text-align: left;
+    margin: 15px 10px;
+}
+
+.places-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.place {
+    width: 100%;
+    margin: 0 10px 20px;
+}
+
+.place h2 {
+    font-size: 24px;
+}
+
+.price_by_night {
+    margin-top: -50px;
+    position: relative;
+}
+
+.price_by_night p {
+    font-size: 24px;
+}
+
+/* Media query for tablets and above */
+@media screen and (min-width: 768px) {
+    .filters {
+        padding: 0;
+    }
+
+    .locations,
+    .amenities {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+
+    .places h1 {
+        text-align: center;
+    }
+
+    .places-container {
+        justify-content: space-between;
+    }
+
+    .place {
+        width: 48%;
+        margin: 0 0 20px;
+    }
+}
